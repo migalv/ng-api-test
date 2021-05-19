@@ -16,6 +16,20 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this._apiBecarios.getBecarios().subscribe(data => { this.becarios = data });
+    this._apiBecarios.getBecarios().subscribe(data => {
+      data.forEach((becario: any) => {
+        this.becarios.push(
+          new Becario(
+            becario.id,
+            becario.nombre,
+            becario.apellidos,
+            becario.puesto,
+            becario.horario,
+            becario.responsables,
+            becario.fechaalta,
+          ),
+        );
+      });
+    });
   }
 }
