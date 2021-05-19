@@ -1,20 +1,39 @@
-<table>
-  <tr>
-    <th>id</th>
-    <th>Nombre</th>
-    <th>Apellidos</th>
-    <th>Puesto</th>
-    <th>Horario</th>
-    <th>Responsables</th>
-    <th>Fecha de Alta</th>
-  </tr>
-  <tr *ngFor="let becario of becarios">
-    <td> {{ becario.id }}</td>
-    <td> {{ becario.nombre }}</td>
-    <td> {{ becario.apellidos }}</td>
-    <td> {{ becario.puesto }}</td>
-    <td> {{ becario.horario }}</td>
-    <td> {{ becario.responsables }}</td>
-    <td> {{ becario.fechaalta }}</td>
-  </tr>
-</table>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let becario of becarios">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ becario.nombre }} {{ becario.apellidos }}
+      </mat-panel-title>
+      <mat-panel-description>
+        id: {{ becario.id }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    Puesto: <h2>{{ becario.puesto }}</h2><br>
+    Horario: <h2>{{ becario.horario }}</h2><br>
+    Responsables:
+    <mat-list>
+      <mat-list-item *ngFor="let responsable of becario.responsables"> {{ responsable }} </mat-list-item>
+    </mat-list><br>
+    Fecha de Alta: <h2>{{becario.fechaalta }}</h2><br>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<!-- <mat-grid-list cols=3>
+  <mat-grid-tile *ngFor="let becario of becarios">
+    <mat-card>
+      <mat-card-title> {{ becario.nombre }} </mat-card-title>
+      <mat-card-subtitle> {{ becario.apellidos }} </mat-card-subtitle>
+      <mat-card-content>
+        <mat-icon aria-hidden="false" matTooltip="id: {{ becario.id }}" aria-label="id icon">info</mat-icon><br>
+        Puesto: <h2>{{ becario.puesto }}</h2><br>
+        Horario: <h2>{{ becario.horario }}</h2><br>
+        Responsables:
+        <mat-list>
+          <mat-list-item *ngFor="let responsable of becario.responsables"> {{ responsable }} </mat-list-item>
+        </mat-list><br>
+        Fecha de Alta: <h2>{{becario.fechaalta }}</h2><br>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list> -->

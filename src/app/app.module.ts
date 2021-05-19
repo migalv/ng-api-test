@@ -7,8 +7,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { apiBecarios } from './services/api_becarios.service';
 
+// Material components
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+const materialComponents = [
+  MatListModule,
+  MatTooltipModule,
+  MatIconModule,
+  MatExpansionModule,
+];
 
 @NgModule({
   declarations: [
@@ -19,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    materialComponents
   ],
   providers: [apiBecarios],
   bootstrap: [AppComponent]
