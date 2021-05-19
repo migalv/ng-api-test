@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Becario } from './models/becario';
+import { apiBecarios } from './services/api_becarios.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prueba-angular';
+  title = 'Prueba API Angular';
+  becarios: Becario[];
+
+  constructor(private _apiBecarios: apiBecarios) {
+    this.becarios = [];
+  }
+
+  ngOnInit() {
+    this._apiBecarios.getBecarios().subscribe(data => { this.becarios = data });
+  }
 }
