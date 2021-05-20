@@ -1,3 +1,6 @@
+<mat-toolbar>
+  <span>Becarios</span>
+</mat-toolbar>
 <mat-accordion>
   <mat-expansion-panel *ngFor="let becario of becarios">
     <mat-expansion-panel-header>
@@ -30,6 +33,12 @@
     <ng-template #emptyFechaAlta>
       <h2>N/A</h2>
     </ng-template><br>
+    <button mat-fab (click)="editBecario(becario)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-fab (click)="deleteBecario(becario.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-expansion-panel>
 </mat-accordion>
 

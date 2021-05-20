@@ -12,21 +12,32 @@ import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 const materialComponents = [
   MatListModule,
   MatTooltipModule,
   MatIconModule,
   MatExpansionModule,
+  MatDialogModule,
+  MatToolbarModule,
+  MatInputModule,
+  FormsModule,
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmationDialogComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
