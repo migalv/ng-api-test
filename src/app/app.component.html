@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>Becarios</span>
+  <h1>Becarios</h1>
 </mat-toolbar>
 <mat-accordion>
   <mat-expansion-panel *ngFor="let becario of becarios">
@@ -8,12 +8,6 @@
         {{ becario.nombre }} {{ becario.apellidos }}
       </mat-panel-title>
       <ng-template #emptyName>
-        <mat-panel-title>N/A</mat-panel-title>
-      </ng-template>
-      <mat-panel-description *ngIf='becario.id; else emptyId'>
-        id: {{ becario.id }}
-      </mat-panel-description>
-      <ng-template #emptyId>
         <mat-panel-title>N/A</mat-panel-title>
       </ng-template>
     </mat-expansion-panel-header>
