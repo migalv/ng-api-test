@@ -1,20 +1,35 @@
 <mat-accordion>
   <mat-expansion-panel *ngFor="let becario of becarios">
     <mat-expansion-panel-header>
-      <mat-panel-title>
+      <mat-panel-title *ngIf='becario.nombre || becario.apellidos; else emptyName'>
         {{ becario.nombre }} {{ becario.apellidos }}
       </mat-panel-title>
-      <mat-panel-description>
+      <ng-template #emptyName>
+        <mat-panel-title>N/A</mat-panel-title>
+      </ng-template>
+      <mat-panel-description *ngIf='becario.id; else emptyId'>
         id: {{ becario.id }}
       </mat-panel-description>
+      <ng-template #emptyId>
+        <mat-panel-title>N/A</mat-panel-title>
+      </ng-template>
     </mat-expansion-panel-header>
-    Puesto: <h2>{{ becario.puesto }}</h2><br>
-    Horario: <h2>{{ becario.horario }}</h2><br>
+    Puesto: <h2 *ngIf='becario.puesto; else emptyPuesto'>{{ becario.puesto }}</h2>
+    <ng-template #emptyPuesto>
+      <h2>N/A</h2>
+    </ng-template><br>
+    Horario: <h2 *ngIf='becario.horario; else emptyHorario'>{{ becario.horario }}</h2>
+    <ng-template #emptyHorario>
+      <h2>N/A</h2>
+    </ng-template><br>
     Responsables:
     <mat-list>
       <mat-list-item *ngFor="let responsable of becario.responsables"> {{ responsable }} </mat-list-item>
     </mat-list><br>
-    Fecha de Alta: <h2>{{becario.fechaalta }}</h2><br>
+    Fecha de Alta: <h2 *ngIf='becario.horario; else emptyFechaAlta'>{{becario.fechaalta }}</h2>
+    <ng-template #emptyFechaAlta>
+      <h2>N/A</h2>
+    </ng-template><br>
   </mat-expansion-panel>
 </mat-accordion>
 
